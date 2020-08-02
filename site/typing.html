@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="このブログはJavaScriptの勉強を進める中で学んだ内容をアウトプットする場として活用してます。">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sp.css">
+  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css">-->
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script>
+    $(function() {
+        $('ul.menu').hide();
+        $('div.category').click(function() {
+            $('ul.menu').slideUp();
+            if ($('+ul', this).css('display') == 'none') {
+                $('+ul', this).slideDown();
+            }
+        });
+    });
+  </script>
+</head>
+<body>
+  <header id="header">
+    <div class="header-area">
+      <h1>はるにくJavaScriptブログ</h1>
+      <p class="header-p">このブログはJavaScriptの勉強を進める中で学んだ内容をアウトプットする場として活用してます。</p>
+    </div>
+    <div class="header-nav">
+      <ul class="header-navi">
+        <!--
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="#">サイトマップ</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+        -->
+      </ul>
+    </div>
+  </header>
+
+  <div id="wrap">  
+    <div id="container">
+      <!--<nav id="nav"></nav>-->
+      <main id="main">
+        <nav class="pankuzu">
+        <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope
+              itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="index.html">
+                <span itemprop="name">トップ</span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </li>
+        
+          <li itemprop="itemListElement" itemscope
+              itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="js.html">
+                <span itemprop="name">JavaScript</span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </li>
+
+          <li itemprop="itemListElement" itemscope
+              itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="variable.html">
+                <span itemprop="name">型付け言語</span>
+            </a>
+            <meta itemprop="position" content="3" />
+          </li>
+        </ol>
+        </nav>
+
+        <h2>型付け言語とは？型付け言語の仕組みについてまとめてみた。</h2>
+        <div class="date"><time datetime="2020-07-21" title="2020-07-21">2020-07-21</time></div>
+        <img src="img/variable-top.jpg" alt="画像" width="100%">
+        <p>プログラミング言語には大きく分けて「動的型付け言語」と「静的型付け言語」の二種類に分かれてます。ここでは型付けという言葉の意味と型付け言語のそれぞれの特徴について紹介します。</p>
+
+        <p class="mokuji">もくじ</p>
+        <ol class="page-contents">
+          <li><a href="#i1">型付け言語とは？</a></li>
+          <li><a href="#i2">動的型付け言語とは？</a></li>
+          <li><a href="#i3">動的型付けのメリット</a></li>
+          <li><a href="#i4">動的型付けのデメリット</a></li>
+          <li><a href="#i5">まとめ</a></li>
+        </ol>
+        <h3 id="i1">型付け言語とは？</h3>
+        <p>プログラミング言語には大きく分けて「静的型付け言語」と、「動的型付け言語」の二種類があります。そもそも型付けとはなんでしょうか？</p>
+        <p>「型付け」という意味は読んでそのままの通り、プログラムを書くときに変数や関数に何が入ってくるかというのが特に決まっていない形を指します。</p>
+        <P>プログラムの世界では文字列、数値、真偽値といった様々なデータの種類があります。そのデータを扱う前にデータの種類の判別をおこないます。扱うデータの種類の型を決めてあげることを型付けと言います。</P>
+        <p>型付けをすることでどの種類のデータを扱うのか事前に決めることができるということです。</p>
+        
+        <h3 id="i2">動的型付け言語とは？</h3>
+        <p>動的型付け言語とは変数に入るデータの種類の「型」を指定しないで変数や関数を使用できます。逆に静的型付け言語は変数や関数に入るデータの種類の型を予め決めないと使用できません。</p>
+        <p>動的型付け言語最大の特徴はコードの書きやすさです。型を定義しなくても自分の思い通りにコードを書くことができるのでプログラミング初心者にとって学習しやすいのでお勧めです。</p>
+        <p>自分の思い通りにコードを書くことができる反面、他のコードと干渉を起こしてエラーとなる原因を作ってしまいます。</p>
+        <p>ちなみにJavaScript、Ruby、Pythonといったプログラミング言語は動的型付け言語に属してます。</p>
+        <p>おそらくプログラミング初心者に取っては何のことだかサッパリ分からないと思うので試しにJavaScriptとJavaで変数を宣言するコードを比較してみましょう。</p>
+        <h4>JavaScript（動的型付け言語）の変数宣言</h4>
+        <dl class="js_code"> <dt>typing.js</dt>
+          <dd>
+            <pre>
+var str = "Hello"; // string型
+var i = 1; // number型                                                       
+var f = 1.1; // number型
+var bool = true; // boolean型</pre> </dd>
+        </dl>
+        <p>動的型付け言語は変数に入るデータの種類の「型」を指定しないで変数や関数を使用できます。小さいプログラムや型の変動が激しい環境であれば簡単に実装できるのでとても便利です。ただ、実際に動かしてみないとプログラムの挙動を確かめることはできません。</p>
+        <h4>Java（静的型付け言語）の変数宣言</h4>
+        <dl class="js_code"> <dt>typing.js</dt>
+          <dd>
+            <pre>
+String str = "Hello"; // String型
+int i = 1; // int型
+float f = 1e-1f; // 1×10^-1 float型
+double d = 1.0; // double型
+boolean b = true; // boolean型</pre> </dd>
+        </dl>
+        <p>静的型付け言語はどんな値が入るか事前に型を指定して使います。変数や関数に型を予め定義しておき、その型以外のデータを変数では使えません。無駄な値を入れられたり無駄に容量をとられることをなくすことができます。型を指定してプログラムを組んでいくので動かす前に挙動を確認できるのが特徴です。</p>
+        
+        <h3 id="i3">動的型付け言語のメリット</h3>
+        <p>動的型付け言語のメリットをいくつか挙げます。他の言語と比較して環境構築が非常に楽です。また、デバック（エラーチェック）もやりやすいのも特徴的です。</p>
+        <h4>1. 変数に代入する値で型が決まるので記述量を減らすことができる。</h4>
+        <p>最大の特徴は何と言ってもコードの記述量を減らすことができることです。プログラムを作成する前に型を定義しなくても変数に代入する時に型が決まるのです。</p>
+        <p>他の言語の場合、型を定義するときに型定義を宣言するコードを書かないといけません。わざわざ型定義を宣言しなくても型定義されるので必然とコードを書く記述量を減らすことができます。</p>
+        <h4>2. 簡単にプログラムを作成することができる。</h4>
+        <p>プログラムの動きはとてもシンプルです。プログラムの動きは「順次進行」「条件分岐」「繰り返し」となってます。この3つの動きのことをまとめて、プログラムの基本構造と言ったり、制御構造、制御フローと言ったりします。この3つの基本構造を使えば、複雑なプログラムを作ることが可能です。</p>
+        <h4>3. リファクタリングが簡単にできる。</h4>
+        <p>リファクタリングのしやすさも特徴的です。リファクタリングとはプログラムの外部から見た動作を変えずにソースコードの内部構造を整理することを言います。</p>
+        <p>要はプログラムのコードで共通化できる部分を綺麗にまとめてあげることです。そうすることによりチームで開発している時に事前に共有することができるわけです。</p>
+        
+        <h3 id="i4">動的型付け言語のデメリット</h3>
+        <p>動的型付け言語のデメリットをいくつか挙げます。JavaScriptは自由に変数にアクセス可能は反面、スコープを汚染しやすいのが最大の特徴です。</p>
+        <h4>1. スコープの汚染</h4>  
+        <p>スコープとは変数を扱える領域のことを指します。変数を代入した時に型は定義されるので同じ変数名だと値の中身など関係なく自由にアクセスすることができます。それがプログラムのエラーの原因となるのです。</p>
+        <h4>2. メモリを無駄に消費する。</h4>
+        <p>JavaScriptの場合、名前空間が1つしか用意されてません。スコープの汚染が原因で発生するエラーが他の言語と比べて高いので変数や関数の扱いには細心の注意が必要です。</p>
+        <h4>3. プログラムを実行しないとエラーを見つけることができない。</h4>
+        <p>一番厄介なケースは他社で開発したプログラムの変数名と自社で開発したプログラムの変数名が被った時です。JavaScriptは実際に処理を実行しないとエラーを確認することができません。</p>
+        <p>記述量が膨大だとエラーの原因を特定するのは容易ではないので気をつけたいところです。</p>
+        
+        <h3 id="i5">まとめ</h3>
+        <img src="img/variable-footer.jpg" alt="画像" width="100%">
+        <p>結論からいうとプログラミング初心者のうちは動的型付け言語から勉強することをお勧めします。型付け言語の根本を理解してから他の言語を学習することをお勧めします。</p>
+        <p>その中でも圧倒的にお勧めな言語はJavaScriptです。ひと昔前までは「使う場面が限られている」「おもちゃな言語」「プログラミング言語ではない」などと言われてましたが、いまでは様々な場面で使われるケースが増えてきてます。</p>
+        <p>例えばVue.js や React.js と言った人気のフレームワークはjavascriptがベースとなってます。裏を返せばJavaScriptを深く理解することでVue.js や React.js の理解度を深めることができます。</p>
+        <p>また、他の言語と比べて環境構築が圧倒的に楽です。ブラウザとテキストエディダさえ用意できればすぐに学ぶことができます。プログラミングに興味のあるかたはこの機会に検討してみては如何でしょうか。</p>
+
+        <div class="share">
+          <ul>
+            <li><a href="#" class="share-tw">
+            <i class="fa fa-twitter"></i><span>Twitter</span>でシェア</a></li>
+            <li><a href="#" class="share-fb">
+            <i class="fa fa-facebook"></i><span>Facebook</span>でシェア</a></li>
+            <li><a href="#" class="share-gp">
+            <i class="fa fa-google-plus"></i><span>Google⁺</span>でシェア</a></li>
+          </ul>
+        </div>
+      </main>
+
+      <aside id="aside">
+        <h2>カテゴリー</h2>
+        <ul class="navi">
+          <li>
+            <div class="category">ホーム</div>
+            <ul class="menu">
+              <li><a href="index.html">トップ</a></li>
+              <li><a href="profile.html">プロフィール</a></li>
+              <li><a href="#">お問い合わせ</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">JavaScript</div>
+            <ul class="menu">
+              <li><a href="variable.html">変数</a></li>
+              <li><a href="typing.html">型付け言語</a></li>
+              <li><a href="#">データ型の種類</a></li>
+              <!--<li><a href="#">条件分岐</a></li> 
+                    <li><a href="#">配列</a></li> 
+                    <li><a href="#">繰り返し処理</a></li>-->
+              <li><a href="function_obj.html">関数オブジェクト</a></li>
+              <li><a href="function.html">関数</a></li>
+              <li><a href="object.html">オブジェクト</a></li>
+              <li><a href="argument.html">引数</a></li>
+              <li><a href="#">戻り値</a></li>
+              <!--<li><a href="#">無名(匿名)関数</a></li> 
+                    <li><a href="#">コールバック関数</a></li> 
+                    <li><a href="#">DOM</a></li> -->
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">jQuery</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">Vue.js</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">React Native</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">メンタル</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!--<ul class="navi">
+                <li>
+                <div class="category">GitHub</div>
+                <ul class="menu"> 
+                    <li><a href="#">準備中</a></li> 
+                    <li><a href="#">プルリクエスト</a></li> 
+                    <li><a href="#">マージ</a></li>
+                    <li><a href="#">コミット</a></li> 
+                </ul>
+                </li>
+            </ul>-->
+      </aside>
+    </div>
+    <!-- container -->
+    <footer id="footer">
+      <p>&copy;はるにくJavaScriptブログ</p>
+    </footer>
+  </div>
+  <!-- wrap -->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+  <script>
+    // ハイライトを実行
+    hljs.initHighlightingOnLoad();
+  </script>-->
+</body>
+</html>

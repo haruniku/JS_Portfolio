@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="このブログはJavaScriptの勉強を進める中で学んだ内容をアウトプットする場として活用してます。">
+  <link rel="stylesheet" href="css/list.css">
+  <link rel="stylesheet" href="css/sp.css">
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script>
+    $(function() {
+        $('ul.menu').hide();
+        $('div.category').click(function() {
+            $('ul.menu').slideUp();
+            if ($('+ul', this).css('display') == 'none') {
+                $('+ul', this).slideDown();
+            }
+        });
+    });
+  </script>
+</head>
+<body>
+  <header id="header">
+    <div class="header-area">
+      <h1>はるにくJavaScriptブログ</h1>
+      <p class="header-p">このブログはJavaScriptの勉強を進める中で学んだ内容をアウトプットする場として活用してます。</p>
+    </div>
+    <div class="header-nav">
+      <ul class="header-navi">
+        <!--
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="#">サイトマップ</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+        -->
+      </ul>
+    </div>
+  </header>
+
+  <div id="wrap">  
+    <div id="container">
+      <!--<nav id="nav"></nav>-->
+      <main id="main"></main>
+
+        
+    </div>
+    <!-- container -->
+    <footer id="footer">
+      <p>&copy;はるにくJavaScriptブログ</p>
+    </footer>
+  </div>
+</body>
+</html>

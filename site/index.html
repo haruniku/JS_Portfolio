@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="このブログはJavaScriptの勉強を進める中で学んだ内容をアウトプットする場として活用してます。">
+  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/sp.css">
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script>
+    $(function() {
+        $('ul.menu').hide();
+        $('div.category').click(function() {
+            $('ul.menu').slideUp();
+            if ($('+ul', this).css('display') == 'none') {
+                $('+ul', this).slideDown();
+            }
+        });
+    });
+  </script>
+</head>
+
+<body>
+  <header id="header">
+    <div class="header-area">
+      <h1>はるにくJavaScriptブログ</h1>
+      <p class="header-p">このブログはJavaScriptの勉強を進める中で学んだ内容をアウトプットする場として活用してます。</p>
+    </div>
+    <div class="header-nav">
+      <ul class="header-navi">
+        <!--
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="#">サイトマップ</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+        -->
+      </ul>
+    </div>
+  </header>
+
+  <div id="wrap">  
+    <div id="container">
+    <!--<nav id="nav"></nav>-->
+    <main id="main">
+      <nav class="pankuzu">
+        <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope
+              itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="index.html">
+                <span itemprop="name">トップ</span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </li>
+        </ol>
+      </nav>
+
+      <div class="sitemap_category">
+        <div class="sitemap_top">
+        <h2>はるにくJavaScriptブログについて</h2>
+        <p>このブログは主にJavaScriptの勉強を進める中で自ら学んだ内容をアウトプットする場として活用してます。現在はJavaScriptメインでやってますが、今後はJavaScript以外の言語も扱っていく予定です。</p>
+        <p>プログラミング初学者の方はHTMLとCSSに慣れてからJavaScirptに進んだ方が無難かと思います。JavaScriptは環境構築がとても楽です。あと、ディベロッパーツールを使用すればエラーチェックも簡単にできます。JavaScriptは他の言語と比べて敷居が低く誰でも学べる環境が整ってます。環境構築で挫折するのはもったいないのでまずは敷居の低いJavaScriptから学ぶことをお勧めします。</p>
+        </div>
+
+        <div class="sitemap_content">
+        <p class="sitemap">サイトマップ</p>
+        <h3>JavaScript</h3>
+        <p class="sitemap_title">基本構造</p>
+        <ul class="bullets">
+          <li><a href="variable.html">変数</a></li>
+          <li><a href="typing.html">型付け言語</a></li>
+        </ul>
+        <p class="sitemap_title">制御構文</p>
+        <ul class="bullets">
+          <li><a href="#">if文</a></li>
+          <li><a href="#">for文</a></li>
+        </ul>
+        <p class="sitemap_title">関数</p>
+        <ul class="bullets">
+          <li><a href="function.html">関数</a></li>
+          <li><a href="function_obj.html">関数オブジェクト</a></li>
+          <li><a href="argument.html">引数</a></li>
+        </ul>
+        <p class="sitemap_title">オブジェクト</p>
+        <ul class="bullets">
+          <li><a href="object.html">オブジェクト</a></li>
+        </ul>
+        <h3>自己紹介</h3>
+        <ul class="bullets">
+          <li><a href="profile.html">プロフィール</a></li>
+        </ul>
+        <h3>デバック（検証）</h3>
+        <ul class="bullets">
+          <li><a href="#">ディベロッパーツール</a></li>
+        </ul>
+        <h3>その他サイト</h3>
+        <ul class="bullets">
+          <li><a href="https://blog.haruniku.com">はるにくブログ</a></li>
+        </ul>
+        </div>
+      </div><!-- sitemap_category -->
+
+      <div class="share">
+        <ul>
+          <li><a href="#" class="share-tw">
+          <i class="fa fa-twitter"></i><span>Twitter</span>でシェア</a></li>
+          <li><a href="#" class="share-fb">
+          <i class="fa fa-facebook"></i><span>Facebook</span>でシェア</a></li>
+          <li><a href="#" class="share-gp">
+          <i class="fa fa-google-plus"></i><span>Google⁺</span>でシェア</a></li>
+        </ul>
+      </div>
+    </main>
+
+    <aside id="aside">
+      <div class="aside_nav">
+      <h2>カテゴリー</h2>
+      <ul class="navi">
+        <li>
+          <div class="category">ホーム</div>
+          <ul class="menu">
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="profile.html">プロフィール</a></li>
+            <li><a href="#">お問い合わせ</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navi">
+        <li>
+          <div class="category">JavaScript</div>
+          <ul class="menu">
+            <li><a href="variable.html">変数</a></li>
+            <li><a href="typing.html">型付け言語</a></li>
+            <li><a href="#">データ型の種類</a></li>
+            <!--<li><a href="#">条件分岐</a></li> 
+                  <li><a href="#">配列</a></li> 
+                  <li><a href="#">繰り返し処理</a></li>-->
+            <li><a href="function_obj.html">関数オブジェクト</a></li>
+            <li><a href="function.html">関数</a></li>
+            <li><a href="object.html">オブジェクト</a></li>
+            <li><a href="argument.html">引数</a></li>
+            <li><a href="#">戻り値</a></li>
+            <!--<li><a href="#">無名(匿名)関数</a></li> 
+                  <li><a href="#">コールバック関数</a></li> 
+                  <li><a href="#">DOM</a></li> -->
+          </ul>
+        </li>
+      </ul>
+      <ul class="navi">
+        <li>
+          <div class="category">jQuery</div>
+          <ul class="menu">
+            <li><a href="#">準備中</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navi">
+        <li>
+          <div class="category">Vue.js</div>
+          <ul class="menu">
+            <li><a href="#">準備中</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navi">
+        <li>
+          <div class="category">React Native</div>
+          <ul class="menu">
+            <li><a href="#">準備中</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navi">
+        <li>
+          <div class="category">メンタル</div>
+          <ul class="menu">
+            <li><a href="#">準備中</a></li>
+          </ul>
+        </li>
+      </ul>
+      <!--<ul class="navi">
+              <li>
+              <div class="category">GitHub</div>
+              <ul class="menu"> 
+                  <li><a href="#">準備中</a></li> 
+                  <li><a href="#">プルリクエスト</a></li> 
+                  <li><a href="#">マージ</a></li>
+                  <li><a href="#">コミット</a></li> 
+              </ul>
+              </li>
+          </ul>-->
+      </div>
+      <div class="aside_nav">
+      <h2>自己紹介</h2>
+      <p>HTML／CSS／JavaScript／TypeScript／VuejsWeb開発を勉強している社会人です。学んだことをブログにしています。間違っていることなどありましたらご指摘ください。よろしくお願いします。</p>
+      </div>
+    </aside>
+    </div>
+    <!-- container -->
+    <footer id="footer">
+      <p>&copy;はるにくJavaScriptブログ</p>
+    </footer>
+  </div>
+</body>
+</html>

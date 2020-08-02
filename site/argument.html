@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="このブログはJavaScriptの勉強を進める中で学んだ内容をアウトプットする場として活用してます。">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sp.css">
+  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css">-->
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script>
+    $(function() {
+        $('ul.menu').hide();
+        $('div.category').click(function() {
+            $('ul.menu').slideUp();
+            if ($('+ul', this).css('display') == 'none') {
+                $('+ul', this).slideDown();
+            }
+        });
+    });
+  </script>
+</head>
+<body>
+  <header id="header">
+    <div class="header-area">
+      <h1>はるにくJavaScriptブログ</h1>
+      <p class="header-p">このブログはJavaScriptの勉強を進める中で学んだ内容をアウトプットする場として活用してます。</p>
+    </div>
+    <div class="header-nav">
+      <ul class="header-navi">
+        <!--
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="#">サイトマップ</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+        -->
+      </ul>
+    </div>
+  </header>
+
+  <div id="wrap">  
+    <div id="container">
+      <!--<nav id="nav"></nav>-->
+      <main id="main">
+        <nav class="pankuzu">
+        <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope
+              itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="index.html">
+                <span itemprop="name">トップ</span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </li>
+        
+          <li itemprop="itemListElement" itemscope
+              itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="js.html">
+                <span itemprop="name">JavaScript</span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </li>
+
+          <li itemprop="itemListElement" itemscope
+              itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="variable.html">
+                <span itemprop="name">引数</span>
+            </a>
+            <meta itemprop="position" content="3" />
+          </li>
+        </ol>
+        </nav>
+
+        <h2>引数とは？引数の仕組みについてまとめてみた。</h2>
+        <div class="date"><time datetime="2020-07-21" title="2020-07-21">2020-07-21</time></div>
+        <img src="img/variable-top.jpg" alt="画像" width="100%">
+
+        <p>引数とはプログラムや関数に渡す値のことです。基本、引数は関数の中で値を渡したい時に使います。関数は呼び出し時に外側からデータを渡せる性質があります。値を渡したい時に使われるのが引数ということです。</p>
+        <p>引数の概念はとても複雑です。プロのエンジニアの方でも引数について上手く説明できない人がいるくらいです。引数を理解することが難しい訳は引数と同じ役割を担う「パラメータ」というものが存在するからです。</p>
+
+        <p class="mokuji">もくじ</p>
+        <ol class="page-contents">
+          <li><a href="#i1">引数とは</a></li>
+          <li><a href="#i2">なぜ引数は必要なのか</a></li>
+          <li><a href="#i3">パラメータとは</a></li>
+          <li><a href="#i4">引数とパラメータの違い</a></li>
+          <li><a href="#i5">結局、引数とは何か？</a></li>
+        </ol>
+
+        <h3 id="i1">引数とは</h3>
+        <p>引数とはプログラムや関数に渡す値のことです。基本、引数は関数の中で値を渡したい時に使います。関数は呼び出し時に外側からデータを渡せる性質があります。値を渡したい時に使われるのが引数ということです。</p>
+        <p>仮に引数をもので例えるとした場合、「家電製品」がわかりやすいかと思います。電子レンジの「温め時間」や、エアコンの「設定温度」が引数の概念に相当します。引数は便利に調整できる「機能」だと思ってください。</p>
+
+<dl class="js_code"> <dt>argument.js</dt>
+  <dd>
+    <pre>
+function square (number) {
+  return number * number;
+}
+square(5); // 5が引数 5は関数内ではnumberという名前がついている
+square(12); // 12が引数 12は関数内ではnumberという名前がついている</pre> </dd>
+</dl>
+        <p>引数の使い方はsquare( )の中に任意の数値を入れます。引数の値を関数の( )で受け取ります。引数には文字列もしくは変数を入れることも可能です。</p>
+
+<dl class="js_code"> <dt>argument.js</dt>
+  <dd>
+    <pre>
+function sayHello (name, age) {
+  return "hello, " + name + "さん 年齢は" + age + "です";
+}
+sayHello("山田", 35); // "hello, 山田さん 年齢は35です"</pre> </dd>
+</dl>   
+        <p>引数は複数定義することもできます。引数の使い方は関数の( )の中に引数名を入れます。もし、( )の中に参照したい引数名がない場合、返り値はundefinedとなります。</p>
+
+        <h3 id="i2">なぜ引数は必要なのか</h3>
+        <p>引数を使わずにプログラミングを組むことは可能です。しかし、引数を使うことでソースコードがスッキリして、エラーが少なくわかりやすいソースコードを作成することが可能です。</p>
+        <p>また、引数を使用することで同じソースコード内で何度も使用される同じ処理を、1つの関数を用いて引数・戻り値で使い回すことができます。使い回すことにより非常に簡素化されたソースコードにすることができます。</p>
+        <p>実際に引数がないプログラミングを書く不便さを感じないと「必要性」や「使いどころ」は理解できないかもしれませんね。</p>
+        <p>引数は一種の「発明」と言っても過言ではないです。</p>
+
+        <h3 id="i3">パラメータとは</h3>
+        <p>パラメータとは関数に受け渡されるものを宣言することです。外から入ってくる値とも言います。IT分野では外部から投入されるデータなどのことをパラメータと呼ぶことが多いです。</p>
+        <p>パラメータを別の言い回しで例えた場合、表計算ソフト「エクセル」を起動する時に、開くファイルの名前を指定するものや電子レンジで温め時間を指定するものだと思ってください。</p>
+
+        <h3 id="i4">引数とパラメータの違い</h3>
+        <div class="argument_main_img"> <img src="img/argument.jpg"> </div>
+        <p>引数とパラメータを同じだと考える人がいるかと思いますが「引数 === パラメータ」ではないです。</p>
+        <p>パラメータは関数に受け渡されるものの「宣言」です。それに対して引数は関数に渡した「実際の値」のことです。もう少し噛み砕いて説明すると、パラメータは「関数に受け渡されるものの宣言」で、引数は「関数に渡した実際の値」ということです。</p>
+
+<dl class="js_code"> <dt>argument.js</dt>
+  <dd>
+    <pre>
+function hello (a,b) {}; // aとbというパラメータを受け取るhelloという関数
+hello(3,5); //hello関数に引数として3,5を渡す</pre> </dd>
+</dl>
+
+        <p>ただ、あまり厳密に区別しなくても会話は成立することが多いです。パラメータと引数を混同して使っても意思疎通にそれほど影響出ていないので問題ないと思います。</p>
+        <p>でも、きちんと使い分けて伝えた方がすっきりしますよね。細かい人はずっと気になった状態でいるかもしれません。要は気持ちの問題ということです。</p>
+
+        <h3 id="i5">結局、引数とは何か？</h3>
+        <img src="img/variable-footer.jpg" alt="画像" width="100%">
+        <p>関数の引数は概念としてはかなり難しい部類に入ります。プロのエンジニアの方でも頭が混乱しやすい部類です。「引数」と「パラメータ」を混同してしまう人がいるからではないかと思います。</p>
+        <p>引数を使用したソースコードを書いていくうちに自然と引数の使い方に慣れてくるかと思うのでそこまで焦らなくても良いです。いまはなんとなく程度で理解しておけば大丈夫です。</p>
+        <p>引数を使用したソースコードをたくさん書けば自ずと引数に対して理解度は深まってくるかと思います。</p>
+
+        <div class="share">
+          <ul>
+            <li><a href="#" class="share-tw">
+            <i class="fa fa-twitter"></i><span>Twitter</span>でシェア</a></li>
+            <li><a href="#" class="share-fb">
+            <i class="fa fa-facebook"></i><span>Facebook</span>でシェア</a></li>
+            <li><a href="#" class="share-gp">
+            <i class="fa fa-google-plus"></i><span>Google⁺</span>でシェア</a></li>
+          </ul>
+        </div>
+      </main>
+
+      <aside id="aside">
+        <div class="aside_nav">
+        <h2>カテゴリー</h2>
+        <ul class="navi">
+          <li>
+            <div class="category">ホーム</div>
+            <ul class="menu">
+              <li><a href="index.html">トップ</a></li>
+              <li><a href="profile.html">プロフィール</a></li>
+              <li><a href="#">お問い合わせ</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">JavaScript</div>
+            <ul class="menu">
+              <li><a href="variable.html">変数</a></li>
+              <li><a href="typing.html">型付け言語</a></li>
+              <li><a href="#">データ型の種類</a></li>
+              <!--<li><a href="#">条件分岐</a></li> 
+                    <li><a href="#">配列</a></li> 
+                    <li><a href="#">繰り返し処理</a></li>-->
+              <li><a href="function_obj.html">関数オブジェクト</a></li>
+              <li><a href="function.html">関数</a></li>
+              <li><a href="object.html">オブジェクト</a></li>
+              <li><a href="argument.html">引数</a></li>
+              <li><a href="#">戻り値</a></li>
+              <!--<li><a href="#">無名(匿名)関数</a></li> 
+                    <li><a href="#">コールバック関数</a></li> 
+                    <li><a href="#">DOM</a></li> -->
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">jQuery</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">Vue.js</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">React Native</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">メンタル</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!--<ul class="navi">
+                <li>
+                <div class="category">GitHub</div>
+                <ul class="menu"> 
+                    <li><a href="#">準備中</a></li> 
+                    <li><a href="#">プルリクエスト</a></li> 
+                    <li><a href="#">マージ</a></li>
+                    <li><a href="#">コミット</a></li> 
+                </ul>
+                </li>
+            </ul>-->
+        </div>
+      </aside>
+    </div>
+    <!-- container -->
+    <footer id="footer">
+      <p>&copy;はるにくJavaScriptブログ</p>
+    </footer>
+  </div>
+  <!-- wrap -->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+  <script>
+    // ハイライトを実行
+    hljs.initHighlightingOnLoad();
+  </script>-->
+</body>
+</html>

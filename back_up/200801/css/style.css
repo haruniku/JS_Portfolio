@@ -1,0 +1,13 @@
+/* variable.htmlのメインテキスト画像 */
+.variable_main_img img {
+    width: 100%;margin:20px 0 20px 0;
+}
+
+/* argument.htmlのメインテキスト画像 */
+.argument_main_img img {
+    width: 100%;margin:20px 0 20px 0;
+}
+
+/* object.htmlのテキストのフォントサイズ */
+#main .obj_main {width: 100%;font-size: 30px; color:red;}
+

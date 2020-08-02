@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="このブログはJavaScriptの勉強を進める中で学んだ内容をアウトプットする場として活用してます。">
+  <link rel="stylesheet" href="css/list.css">
+  <link rel="stylesheet" href="css/sp.css">
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script>
+    $(function() {
+        $('ul.menu').hide();
+        $('div.category').click(function() {
+            $('ul.menu').slideUp();
+            if ($('+ul', this).css('display') == 'none') {
+                $('+ul', this).slideDown();
+            }
+        });
+    });
+  </script>
+</head>
+<body>
+  <header id="header">
+    <div class="header-area">
+      <h1>はるにくJavaScriptブログ</h1>
+      <p class="header-p">このブログはJavaScriptの勉強を進める中で学んだ内容をアウトプットする場として活用してます。</p>
+    </div>
+    <div class="header-nav">
+      <ul class="header-navi">
+        <!--
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="#">サイトマップ</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+        -->
+      </ul>
+    </div>
+  </header>
+
+  <div id="wrap">  
+    <div id="container">
+      <!--<nav id="nav"></nav>-->
+      <main id="main">
+
+        <h2>記事一覧</h2>
+
+        <div class="main_category">
+          <section class="section_category">
+            <p class="section_date">
+              <time datetime="2020-07-21" title="2020-07-21">2020-07-21</time>
+            </p>
+            <p class="section_type_js">JavaScript</p>
+            <p class="seciton_title">変数とは？変数の仕組みについてまとめてみた。</p>
+            <p class="section_text">プログラミング学習を始めるうえで変数の概念を理解する事は非常に重要です。変数はプログラミングの中でも基礎中の基礎であり、学ぶうえで避けては通れない道です。変数の理解を疎かにしてしまうと後々躓く可能性が・・・</p> 
+            <p class="more"><a href="variable.html">続きを読む</a><i class="fa fa-chevron-right"></i></p>
+          </section>
+
+          <section class="section_category">
+            <p class="section_date">
+              <time datetime="2020-07-21" title="2020-07-21">2020-07-21</time>
+            </p>
+            <p class="section_type_js">JavaScript</p>
+            <p class="seciton_title">型付け言語とは</p>
+            <p class="section_text">プログラミング言語には大きく分けて「静的型付け言語」と、「動的型付け言語」の二種類があります。そもそも型付けとはなんでしょうか。</p>
+            <p class="more"><a href="typing.html">続きを読む</a><i class="fa fa-chevron-right"></i></p>
+          </section>
+        </div>
+
+      </main>
+
+      <aside id="aside">
+        <h2>カテゴリー</h2>
+        <ul class="navi">
+          <li>
+            <div class="category">トップ</div>
+            <ul class="menu">
+              <li><a href="index.html">サイトマップ</a></li>
+              <li><a href="#">お問い合わせ</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">JavaScript</div>
+            <ul class="menu">
+              <li><a href="variable.html">変数</a></li>
+              <li><a href="typing.html">型付け言語</a></li>
+              <li><a href="#">データ型の種類</a></li>
+              <!--<li><a href="#">条件分岐</a></li> 
+                    <li><a href="#">配列</a></li> 
+                    <li><a href="#">繰り返し処理</a></li>-->
+              <li><a href="function_obj.html">関数オブジェクト</a></li>
+              <li><a href="function.html">関数</a></li>
+              <li><a href="object.html">オブジェクト</a></li>
+              <li><a href="argument.html">引数</a></li>
+              <li><a href="#">戻り値</a></li>
+              <!--<li><a href="#">無名(匿名)関数</a></li> 
+                    <li><a href="#">コールバック関数</a></li> 
+                    <li><a href="#">DOM</a></li> -->
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">jQuery</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">Vue.js</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">React Native</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">メンタル</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!--<ul class="navi">
+                <li>
+                <div class="category">GitHub</div>
+                <ul class="menu"> 
+                    <li><a href="#">準備中</a></li> 
+                    <li><a href="#">プルリクエスト</a></li> 
+                    <li><a href="#">マージ</a></li>
+                    <li><a href="#">コミット</a></li> 
+                </ul>
+                </li>
+            </ul>-->
+      </aside>
+    </div>
+    <!-- container -->
+    <footer id="footer">
+      <p>&copy;はるにくJavaScriptブログ</p>
+    </footer>
+  </div>
+</body>
+</html>

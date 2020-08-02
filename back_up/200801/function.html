@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="このサイトは日々勉強する中で学んだJavaScriptをアウトプットする場として使用してます。">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sp.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css">
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script>
+    $(function() {
+        $('ul.menu').hide();
+        $('div.category').click(function() {
+            $('ul.menu').slideUp();
+            if ($('+ul', this).css('display') == 'none') {
+                $('+ul', this).slideDown();
+            }
+        });
+    });
+  </script>
+</head>
+<body>
+  <div id="wrap">
+    <header id="header">
+      <div class="header-area">
+        <h1>はるにくJavaScriptブログ</h1>
+        <p class="header-p"> このサイトは日々勉強する中で学んだJavaScriptの内容をひたすらアウトプットしていくものです。 </p>
+      </div>
+      <div class="header-nav">
+        <ul class="header-navi">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="#">サイトマップ</a></li>
+          <li><a href="#">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="container">
+      <nav id="nav">
+        <ul class="navi">
+          <li>
+            <div class="category">ホーム</div>
+            <ul class="menu">
+              <li><a href="index.html">HOME</a></li>
+              <li><a href="#">サイトマップ</a></li>
+              <li><a href="#">お問い合わせ</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">JavaScript</div>
+            <ul class="menu">
+              <li><a href="variable.html">変数</a></li>
+              <li><a href="typing.html">型付け言語</a></li>
+              <li><a href="#">データ型の種類</a></li>
+              <li><a href="object.html">オブジェクト</a></li>
+              <li><a href="function_obj.html">関数オブジェクト</a></li>
+              <li><a href="function.html">関数</a></li>
+              <li><a href="argument.html">引数</a></li>
+              <li><a href="#">戻り値</a></li>
+              <!--<li><a href="#">無名(匿名)関数</a></li> 
+                    <li><a href="#">コールバック関数</a></li> 
+                    <li><a href="#">条件分岐</a></li> 
+                    <li><a href="#">配列</a></li> 
+                    <li><a href="#">繰り返し処理</a></li>-->
+                    <li><a href="#">DOM</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">jQuery</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">Vue.js</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">React Native</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">メンタル</div>
+            <ul class="menu">
+              <li><a href="#">学習方法その①</a></li>
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!--<ul class="navi">
+                <li>
+                <div class="category">GitHub</div>
+                <ul class="menu"> 
+                    <li><a href="#">準備中</a></li> 
+                    <li><a href="#">プルリクエスト</a></li> 
+                    <li><a href="#">マージ</a></li>
+                    <li><a href="#">コミット</a></li> 
+                </ul>
+                </li>
+            </ul>-->
+      </nav>
+      <main id="main">
+
+        <h2>関数について</h2>
+        <h3>もくじ</h3>
+        <ol class="page-contents">
+          <li><a href="#i1">関数とは</a></li>
+          <li><a href="#i2">関数を定義する方法</a></li>
+          <li><a href="#i3">関数の意味を考える</a></li>
+          <li><a href="#i4">まとめ</a>
+          </li>        
+        </ol>
+
+        <h3 id="i1">関数とは</h3>
+
+        <p>関数とは外部 (再帰の場合は内部) から呼ばれることのできる「サブプログラム」です。プログラムそのもののように、関数は関数本体と呼ばれる連続した文で構成されます。値を関数に渡す事ができ、関数は値を返す事ができます。</p>
+
+        <p>JavaScriptでは、関数もオブジェクトです（Functionオブジェクト）。オブジェクトであるから、プロパティやメソッドを持ってます。</p>
+
+        <p></p>
+
+        <h3 id="i2">関数を定義する方法</h3>
+
+        <p>関数は「function」で関数宣言を行い、その後に関数名を指定します。関数名として付けることができる名前は自由に指定可能です。ただし、<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Reserved_Words">予約語</a>は使用できませんのでご注意ください。</p>
+
+<dl class="js_code"> <dt>function.js</dt>
+  <dd>
+    <pre>
+function 関数名( ){
+  実行される処理;
+}</pre> </dd>
+</dl>
+
+        <p>関数が呼び出された時に実行される処理内容を「{」から「}」のブロック内に記述します。引数が無い場合は記述しなくて大丈夫です。</p>
+
+        <h4>引数を使用する場合</h4>
+
+<dl class="js_code"> <dt>function.js</dt>
+  <dd>
+    <pre>
+function 関数名(引数名1,引数名2...){
+  実行される処理;
+}
+関数名(引数名1,引数名2);</pre> </dd>
+</dl>
+
+        <p>引数を使う場合、変数名の後ろの「(」から「)」の中に引数を指定します。複数の引数がある場合には ,（カンマ）で区切って記述して下さい。</p>
+
+        <h4>関数式の場合</h4>
+
+<dl class="js_code"> <dt>function.js</dt>
+  <dd>
+    <pre>
+var hoge = function 関数名(){
+  実行される処理;
+}</pre> </dd>
+</dl>
+
+
+        <p>関数は変数に代入することができます。変数に代入することで別の処理内で実行することが可能です。関数を変数に代入するので「関数式」と呼ばれてます。</p>
+
+        <p>関数式では、関数名を省略できます。関数式はそのままでは呼び出せず、変数に代入するなどしてから呼び出します。</p>
+
+
+        <h3 id="i3">関数の意味を考える</h3>
+
+        <p>関数は、小さなプログラムです。何か一連のまとまった処理をさせます。他にもプログラムを読みやすくしたり、何度も使うコードを簡単に呼び出せるようにするためのものです。</p>
+
+        <p>例えばあまり関数に関する関連性のないプログラムを作ってしまうとどうなるでしょうか？下記にサンプルコードを用意ました。</p>
+      
+<dl class="js_code"> <dt>function.js</dt>
+  <dd>
+    <pre>
+// 関数のサンプルコード1
+function add(num1, num2) {
+  return num1 + num2;
+}
+add(1, 2); // 3と出力される</pre> </dd>
+</dl>
+
+        <p>このプログラムは関数を定義し、その中で値を足して結果を戻り値で返すプログラムです。しかし、このプログラムをみて「普通に足せば良いじゃん！？」と心のツッコミを入れたくなります。</p>
+
+<dl class="js_code"> <dt>function.js</dt>
+  <dd>
+    <pre>
+// 関数のサンプルコード2
+function hoge() {
+  console.log("hello");
+}
+hoge(); // "hello"と出力される</pre> </dd>
+</dl>
+
+        <p>こちらのプログラムは関数を定義し、関数を実行させて文字を出力させるプログラムです。上のプログラムと同じく「普通にconsoleでやれば良いじゃん！？」と心の中で思いますよね。</p>
+  
+        <p>こんなサンプルコードを見たら、このコードにいったい何の意味があるのだろう？と思うでしょう。関数の書き方はわかるけど、役割について疑問に思うことありませんか？</p>
+
+        <p>実際、このコードには意味がありません。関数の定義の仕方の説明としては意味があっても、「何を関数にするか？」「この関数の役割は？」という疑問に答えてくれません。</p>
+
+        <p>要は学習する中で関数を作るときは「意味のある関数」を作らなければいけません。ある程度、設計を考えて関数を作成しないといけません。</p>
+          
+        <p>関数を定義するということ、関数に名前をつけるということはアプリケーションの設計そのものです。意味がある関数を定義し、意味ある関数名をつけることがアプリケーションの設計の始まりです。</p>
+
+        <p>この考え方を身に付けることで関数の使い方や理解度は深まるかと思います。</p>
+
+        <h3 id="i4">まとめ</h3>
+
+        <p>今回は関数についてお話しました。</p>
+
+
+
+
+      </main>
+      <aside id="aside">バナー広告領域</aside>
+    </div>
+    <!-- container -->
+    <footer id="footer">
+      <p>&copy;はるにくJavaScriptブログ</p>
+    </footer>
+  </div>
+  <!-- wrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+  <script>
+    // ハイライトを実行
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+</html>

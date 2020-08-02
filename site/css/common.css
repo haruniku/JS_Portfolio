@@ -1,0 +1,68 @@
+/* 共通化部分のCSS */
+body {margin: 0;
+    font-family: "Yu Gothic Medium", "游ゴシック Medium", YuGothic, "游ゴシック体", "ヒラギノ角ゴ Pro W3", "メイリオ", sans-serif;
+}
+
+/* ヘッター */
+#header {margin:0 auto;padding-top: 10px;height: 200px;}
+.header-area {margin: 50px 0 50px 0;}
+.header-area h1 {font-size: 27px;text-align: center;}
+.header-area .header-p {font-size: 15px;text-align: center;}
+.header-area .logo {float: left;width: 45px;height: 45px;margin-right: 7px;margin-top: 7px;}
+
+/* ヘッターナビ */
+.header-navi {margin: 0;padding: 0;width: 100%;height: 50px;list-style: none;display: flex;background-color: #06C;}
+.header-navi li {text-align: center;background-color: #06C;height: 50px;line-height: 50px;margin-right: 2px;}
+.header-navi li a {text-decoration: none;color: #fff;font-weight: bold;padding: 15px;font-size: 13px;}
+
+/* パンくず */
+.pankuzu {margin-bottom: 20px;}
+.pankuzu .breadcrumb {margin: 0;padding: 0;list-style: none;}
+.pankuzu .breadcrumb li {display: inline;list-style: none;font-weight: bold;}
+.pankuzu .breadcrumb li:after {content: '>';padding: 0 0.2em;color: #555;}
+.pankuzu .breadcrumb li:last-child:after {content: '';}
+.pankuzu .breadcrumb li a {text-decoration: none;color: #52b5ee;}
+.pankuzu .breadcrumb li a:hover {text-decoration: underline;}
+
+/* 日付 */
+.date {color: rgb(220, 207, 207);margin-bottom: 10px;}
+
+/* メイン（中央：メイン領域） */
+/* pre {  font-family: Consolas, Menlo, Monaco, -apple-system, BlinkMacSystemFont, "Segoe UI", Meiryo, monospace;margin: 2em 0;padding: 1em;border-radius: 5px;background: #25292f;color: #fff;overflow-x: auto;-webkit-overflow-scrolling: touch;font-size:15px;} */
+#main .js_code dt { padding: 6px 12px;color: #fff;font-size:18px;line-height: 36px;background: #06C;border-radius: 10px 10px 0 0;}
+#main .js_code dd { margin:0;padding:0;background: #cdf3ff;padding: 12px;border-radius: 0 0 10px 10px;font-size:18px;line-height: 36px;overflow: scroll;}
+#main .js_code pre {width:680px;overflow:scroll;}
+#wrap {width: 980px;margin: 0 auto;min-height: 100vh;display: flex;flex-direction: column;}
+#container {width: 100%;margin: 0 auto;display: flex;flex: 1;margin-top: 100px;margin-bottom: 50px;}
+.page-contents {width:350px;border: 2px dotted #3E4B74;}
+.page-contents li {margin: 5px 0 5px 0;padding: 5px 0 5px 0;}
+.page-contents li a {text-decoration: none;color: #3E4B74;}
+#main {flex: 1;margin-right: 50px;}
+#main h2 {font-size: 23px;color: #3E4B74;margin: 0;margin-bottom: 20px;padding: 3px 0 3px 10px;
+border-left: 12px solid #06C;}
+#main h3 {font-size: 20px;padding-top: 30px;padding-bottom: 10px;border-bottom: 6px double #06C;}
+#main .mokuji {font-size: 20px;padding-bottom: 10px;font-weight: bold;}
+#main h4 {font-size: 18px;position: relative;padding-left: 1.5em;}
+#main h4::after {position: absolute;top: 50%;left:0;transform:translateY(-50%);content: '';
+width: 10px;height:10px;border: solid 4px #06C;border-radius:100%;}
+#main p {line-height: 36px;font-size: 17px;padding-bottom: 50px;}
+
+/* アサイド */
+#aside {width: 350px;}
+#aside ul {margin: 0;padding-left: 15px;list-style: none;line-height: 2.0;}
+#aside h2 {font-size: 23px;color: #3E4B74;margin: 0;margin-bottom: 20px;padding: 3px 0 3px 10px;}
+#aside .aside_nav {margin-bottom:50px;}
+
+/* SNSシェアボタン */
+.share {margin-bottom:50px;}
+.share ul {margin:0;padding:0;list-style:none;}
+.share li a {display:block;padding:10px 5px;color:#ffffff;font-size:14px;text-align:center;text-decoration:none;}
+.share-tw {background-color:#55acee;}
+.share-fb {background-color:#3b5998;}
+.share-gp {background-color:#dd4b39;}
+.share li a:hover {opacity:0.8}
+.share ul:after {content:"";display:block;clear:both;}
+.share li {float:left;width:33.3333%}
+
+/* フッター */
+#footer {border-top: 1px dotted #666;padding-top: 10px;text-align: center;}

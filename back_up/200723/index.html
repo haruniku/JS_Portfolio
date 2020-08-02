@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="このサイトは日々勉強する中で学んだJavaScriptをアウトプットする場として使用してます。">
+  <link rel="stylesheet" href="css/top.css">
+  <link rel="stylesheet" href="css/sp.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css">
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script>
+    $(function() {
+        $('ul.menu').hide();
+        $('div.category').click(function() {
+            $('ul.menu').slideUp();
+            if ($('+ul', this).css('display') == 'none') {
+                $('+ul', this).slideDown();
+            }
+        });
+    });
+  </script>
+</head>
+<body>
+  <div id="wrap">
+    <header id="header">
+      <div class="header-area"> <img src="img/logo2.png" class="logo">
+        <h1>はるにくJavaScriptブログ</h1>
+        <p class="header-p">このサイトは日々勉強する中で学んだJavaScriptの内容をひたすらアウトプットしていくものです。</p>
+      </div>
+      <div class="header-nav">
+        <ul class="header-navi">
+          <li><a href="#">HOME</a></li>
+          <li><a href="#">サイトマップ</a></li>
+          <li><a href="#">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="container">
+      <nav id="nav">
+        <ul class="navi">
+          <li>
+            <div class="category">ホーム</div>
+            <ul class="menu">
+              <li><a href="index.html">HOME</a></li>
+              <li><a href="#">サイトマップ</a></li>
+              <li><a href="#">お問い合わせ</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">JavaScript</div>
+            <ul class="menu">
+              <li><a href="variable.html">変数</a></li>
+              <li><a href="typing.html">型付け言語</a></li>
+              <li><a href="#">データ型の種類</a></li>
+              <!--<li><a href="#">条件分岐</a></li> 
+                    <li><a href="#">配列</a></li> 
+                    <li><a href="#">繰り返し処理</a></li>-->
+              <li><a href="function_obj.html">関数オブジェクト</a></li>
+              <li><a href="function.html">関数</a></li>
+              <li><a href="object.html">オブジェクト</a></li>
+              <li><a href="argument.html">引数</a></li>
+              <li><a href="#">戻り値</a></li>
+              <!--<li><a href="#">無名(匿名)関数</a></li> 
+                    <li><a href="#">コールバック関数</a></li> 
+                    <li><a href="#">DOM</a></li> -->
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">jQuery</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">Vue.js</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">React Native</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">メンタル</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!--<ul class="navi">
+                <li>
+                <div class="category">GitHub</div>
+                <ul class="menu"> 
+                    <li><a href="#">準備中</a></li> 
+                    <li><a href="#">プルリクエスト</a></li> 
+                    <li><a href="#">マージ</a></li>
+                    <li><a href="#">コミット</a></li> 
+                </ul>
+                </li>
+            </ul>-->
+      </nav>
+      <main id="main">
+        <h2>タイトル一覧</h2>
+
+        <div class="main_category">
+          <section class="section_category">
+            <p class="section_date">
+              <time datetime="2020-07-21" title="2020-07-21">2020-07-21</time>
+            </p>
+            <p class="section_type">javascript</p>
+            <p class="seciton_title">変数の使い方</p>
+            <p class="section_text">変数とはデータを一時的に保管しておくための「箱」のような物をイメージして下さい。変数には好きな「名前」をつけることができます。また、変数のことを「識別子」と呼ぶこともあります。</p>
+          </section>
+
+          <section class="section_category">
+            <p class="section_date">
+              <time datetime="2020-07-21" title="2020-07-21">2020-07-21</time>
+            </p>
+            <p class="section_type">javascript</p>
+            <p class="seciton_title">型付け言語とは</p>
+            <p class="section_text">プログラミング言語には大きく分けて「静的型付け言語」と、「動的型付け言語」の二種類があります。そもそも型付けとはなんでしょうか。</p>
+          </section>
+        </div>
+
+      </main>
+      <aside id="aside">バナー広告領域</aside>
+    </div>
+    <!-- container -->
+    <footer id="footer">
+      <p>&copy;はるにくJavaScriptブログ</p>
+    </footer>
+  </div>
+  <!-- wrap -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+  <script>
+    // ハイライトを実行
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+</html>

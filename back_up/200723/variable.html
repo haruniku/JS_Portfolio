@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="このサイトは日々勉強する中で学んだJavaScriptをアウトプットする場として使用してます。">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sp.css">
+  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css">-->
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script>
+    $(function() {
+        $('ul.menu').hide();
+        $('div.category').click(function() {
+            $('ul.menu').slideUp();
+            if ($('+ul', this).css('display') == 'none') {
+                $('+ul', this).slideDown();
+            }
+        });
+    });
+  </script>
+</head>
+<body>
+  <div id="wrap">
+    <header id="header">
+      <div class="header-area">
+        <h1>はるにくJavaScriptブログ</h1>
+        <p class="header-p"> このサイトは日々勉強する中で学んだJavaScriptの内容をひたすらアウトプットしていくものです。 </p>
+      </div>
+      <div class="header-nav">
+        <ul class="header-navi">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="#">サイトマップ</a></li>
+          <li><a href="#">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </header>
+    
+    <div id="container">
+      <nav id="nav">
+        <ul class="navi">
+          <li>
+            <div class="category">ホーム</div>
+            <ul class="menu">
+              <li><a href="index.html">HOME</a></li>
+              <li><a href="#">サイトマップ</a></li>
+              <li><a href="#">お問い合わせ</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">JavaScript</div>
+            <ul class="menu">
+              <li><a href="variable.html">変数</a></li>
+              <li><a href="typing.html">型付け言語</a></li>
+              <li><a href="#">データ型の種類</a></li>
+              <!--<li><a href="#">条件分岐</a></li> 
+                    <li><a href="#">配列</a></li> 
+                    <li><a href="#">繰り返し処理</a></li>-->
+              <li><a href="function_obj.html">関数オブジェクト</a></li>
+              <li><a href="function.html">関数</a></li>
+              <li><a href="object.html">オブジェクト</a></li>
+              <li><a href="argument.html">引数</a></li>
+              <li><a href="#">戻り値</a></li>
+              <!--<li><a href="#">無名(匿名)関数</a></li> 
+                    <li><a href="#">コールバック関数</a></li> 
+                    <li><a href="#">DOM</a></li> -->
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">jQuery</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">Vue.js</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">React Native</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">メンタル</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!--<ul class="navi">
+                <li>
+                <div class="category">GitHub</div>
+                <ul class="menu"> 
+                    <li><a href="#">準備中</a></li> 
+                    <li><a href="#">プルリクエスト</a></li> 
+                    <li><a href="#">マージ</a></li>
+                    <li><a href="#">コミット</a></li> 
+                </ul>
+                </li>
+            </ul>-->
+      </nav>
+      <main id="main">
+        <h2>変数について</h2>
+        <h3>もくじ</h3>
+        <ol class="page-contents">
+          <li><a href="#i1">変数とは？</a></li>
+          <li><a href="#i2">変数の使い方</a></li>
+          <li><a href="#i3">変数名について</a></li>
+          <li><a href="#i4">変数名には意味のある名前をつける</a></li>
+          <li><a href="#i5">変数には様々なデータが格納できる</a></li>
+          <li><a href="#i6">変数だけを宣言する</a></li>
+          <li><a href="#i7">変数の中身は書き換えることができる</a></li>
+          <li><a href="#i8">結局、変数とは何か？</a></li>
+        </ol>
+        <h3 id="i1">変数とは？</h3>
+        <p>データを一時的に保管しておくための「箱」のような物をイメージして下さい。変数には好きな「名前」をつけることができます。また、変数のことを「識別子」と呼ぶこともあります。</p>
+        <div class="variable_main_img"> <img src="https://media.prod.mdn.mozit.cloud/attachments/2016/07/12/13506/fff6c759c689be5d4d25f35f7e6f0e5a/boxes.png" alt="変数"> </div>
+        <p>イメージとしては名前付きの箱を作り、この中に値を保管することで他のところで使いまわすことができる便利なものです。変数はプログラミングを学ぶうえで非常に重要な基礎部分となるのでしっかり覚えましょう。</p>
+        <h3 id="i2">変数の使い方</h3>
+        <p>変数を使用するためには、まずは変数を作ります。より正確には、「変数を宣言する」といいます。そのためには var キーワードに続けて変数名を書きます。</p>
+        <dl class="js_code"> <dt>variable.js</dt>
+          <dd>
+            <pre>
+var a = 100; // a という名前の変数を宣言し 100 という値を入れる</pre> </dd>
+        </dl>
+        <p>最近では const や let の登場により var を使用すること自体少なくなってきてます。プログラミング学習を始めるうちは var を使った方が学習効率が良いので初学者のうちは var を使用し、徐々に慣れてきたら const や let を使用するようにしましょう。</p>
+        <h3 id="i3">変数名について</h3>
+        <p>変数名は以下のように書きます。</p>
+        <dl class="js_code"> <dt>variable.js</dt>
+          <dd>
+            <pre>
+var hoge = 500; // hoge という変数に 500 という値を格納
+var $a = 1000; // $a という変数に 1000 という値を格納
+var _abc = 999; // _abc という変数に 999 という値を格納</pre> </dd>
+        </dl>
+        <p>NGなケースは先頭文字が数字の0から9場合と予約語と呼ばれるものは使用できません。予約語とはJavaScriptが使用するキーワードで、変数名や関数名などで使用できないキーワードのことです。</p>
+        <dl class="js_code"> <dt>variable.js</dt>
+          <dd>
+            <pre>
+// 先頭文字が数字の場合はNG
+var 123hoge;
+var 001abc;
+
+// 予約後と呼ばれるものもNG
+var for;
+var break;</pre> </dd>
+        </dl>
+        <h3 id="i4">変数には意味のある名前をつける</h3>
+        <p>変数を作成する場合は、意味のない変数名をつけても問題ありません。ただし、通常は出来るだけ意味のある変数名をつけたほうが良いでしょう。名前があるとコードの意味を理解しやすくなります。どんな値が格納されているかの説明にもなるので、変数にはパッと見たときにそのデータが何か分かる名前をつけるようにしましょう。</p>
+        <dl class="js_code"> <dt>variable.js</dt>
+          <dd>
+            <pre>
+var price = 500; // 値段
+var age = 34; // 年齢
+var name = "高橋大輔"; // 名前</pre> </dd>
+        </dl>
+        <h3 id="i5">変数には様々なデータが格納できる</h3>
+        <p>格納(=保持)です。箱にデータを入れるイメージなので、変数にデータを入れることを「格納」と表現することが多いです。</p>
+        <ol>
+          <li>"JavaScript" や "プログラミング" といった文字（文字列）も格納できます。</li>
+          <li>true/false などの「真偽値」も格納できます。</li>
+          <li>配列やオブジェクト、関数なども格納できます。</li>
+        </ol>
+        <dl class="js_code"> <dt>variable.js</dt>
+          <dd>
+            <pre>
+var name = "高橋大輔"; // 文字
+var age = 34; // 数値
+var flag = true; // 真偽値
+var foods = ["寿司","焼肉","ラーメン"]; // 配列
+var Calc = 79 * 38 / 0.5; // 計算結果</pre> </dd>
+        </dl>
+        <h3 id="i6">変数だけを宣言する</h3>
+        <p>先に変数だけを宣言をし、後から値を格納することもできます。この場合、変数の中に何の値も入っていないので返り値は undefined となります。</p>
+        <dl class="js_code"> <dt>sample.js</dt>
+          <dd>
+            <pre>
+var name;
+var age;
+
+name = "高橋大輔";
+age = 25;</pre> </dd>
+        </dl>
+        <h3 id="i7">変数の中身は書き換えることができる</h3>
+        <p> var で宣言した変数の中身は他のデータで書き換えることも可能です。</p>
+        <dl class="js_code"> <dt>variable.js</dt>
+          <dd>
+            <pre>
+var price = 500; // 値段
+var tax = 0.10; // 消費税
+var postage = 120; // 送料
+price = price + (price * tax); // 消費税込みの値段を計算した結果をpriceへ再格納
+price = price + postage; // 送料込みの値段を計算</pre> </dd>
+        </dl>
+        <h3 id="i8">結局、変数とは何か？</h3>
+        <p>変数は値を入れることができる箱です。var は変数を宣言するためのキーワードです。変数に使える文字は決まっており、大文字と小文字は区別されます。var 以外にも let や const というキーワードがあり、var を使って宣言した変数の中身は書き換えることができます。
+          <p>今回は変数についてお伝えしました。</p>
+      </main>
+      <aside id="aside">バナー広告領域</aside>
+    </div>
+    <!-- container -->
+    <footer id="footer">
+      <p>&copy;はるにくJavaScriptブログ</p>
+    </footer>
+  </div>
+  <!-- wrap -->
+  <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+  <script>
+    // ハイライトを実行
+    hljs.initHighlightingOnLoad();
+  </script>-->
+</body>
+</html>

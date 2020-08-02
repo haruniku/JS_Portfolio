@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="このサイトは日々勉強する中で学んだJavaScriptをアウトプットする場として使用してます。">
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/sp.css">
+  <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css">-->
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script>
+    $(function() {
+        $('ul.menu').hide();
+        $('div.category').click(function() {
+            $('ul.menu').slideUp();
+            if ($('+ul', this).css('display') == 'none') {
+                $('+ul', this).slideDown();
+            }
+        });
+    });
+  </script>
+</head>
+<body>
+  <div id="wrap">
+    <header id="header">
+      <div class="header-area">
+        <h1>はるにくJavaScriptブログ</h1>
+        <p class="header-p"> このサイトは日々勉強する中で学んだJavaScriptの内容をひたすらアウトプットしていくものです。 </p>
+      </div>
+      <div class="header-nav">
+        <ul class="header-navi">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="#">サイトマップ</a></li>
+          <li><a href="#">お問い合わせ</a></li>
+        </ul>
+      </div>
+    </header>
+    <div id="container">
+      <nav id="nav">
+        <ul class="navi">
+          <li>
+            <div class="category">ホーム</div>
+            <ul class="menu">
+              <li><a href="index.html">HOME</a></li>
+              <li><a href="#">サイトマップ</a></li>
+              <li><a href="#">お問い合わせ</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">JavaScript</div>
+            <ul class="menu">
+              <li><a href="variable.html">変数</a></li>
+              <li><a href="typing.html">型付け言語</a></li>
+              <li><a href="#">データ型の種類</a></li>
+              <!--<li><a href="#">条件分岐</a></li> 
+                    <li><a href="#">配列</a></li> 
+                    <li><a href="#">繰り返し処理</a></li>-->
+              <li><a href="function_obj.html">関数オブジェクト</a></li>
+              <li><a href="function.html">関数</a></li>
+              <li><a href="object.html">オブジェクト</a></li>
+              <li><a href="argument.html">引数</a></li>
+              <li><a href="#">戻り値</a></li>
+              <!--<li><a href="#">無名(匿名)関数</a></li> 
+                    <li><a href="#">コールバック関数</a></li> 
+                    <li><a href="#">DOM</a></li> -->
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">jQuery</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">Vue.js</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">React Native</div>
+            <ul class="menu">
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="navi">
+          <li>
+            <div class="category">メンタル</div>
+            <ul class="menu">
+              <li><a href="#">学習方法その①</a></li>
+              <li><a href="#">準備中</a></li>
+            </ul>
+          </li>
+        </ul>
+        <!--<ul class="navi">
+        <li>
+        <div class="category">GitHub</div>
+        <ul class="menu"> 
+            <li><a href="#">準備中</a></li> 
+            <li><a href="#">プルリクエスト</a></li> 
+            <li><a href="#">マージ</a></li>
+            <li><a href="#">コミット</a></li> 
+        </ul>
+        </li>
+    </ul>-->
+      </nav>
+      <main id="main">
+        <h2>関数オブジェクトについて</h2>
+        <h3>もくじ</h3>
+        <ol class="page-contents">
+          <li><a href="#i1">関数は( )で実行可能なオブジェクト</a></li>
+          <li><a href="#i2">関数の実行と参照の違い</a></li>
+          <li><a href="#i3">関数とオブジェクトは仲間です</a></li>
+          <li><a href="#i4">まとめ</a></li>
+        </ol>
+        
+        <h3 id="i1">関数は( )で実行可能なオブジェクト</h3>
+        <p>JavaScriptを学ぶうえでオブジェクトの学習は必要不可欠です。オブジェクトについて色々と調べたところ<span style="color:#ff0000;">関数は( )で実行可能なオブジェクト</span>だということを初めて知りました。</p>
+        <p>その言葉の本質的な意味を全く理解することができずに関数とオブジェクトの違いについて悩む日々が続くことになる。</p>
+        <p>関数とオブジェクトの違いを探ろうとサンプルコードを作成してみました。このコードでは関数とオブジェクトの違いを確かめるコードとなってます。</p>
+        <dl class="js_code"> <dt>obj.js</dt>
+          <dd>
+            <pre>
+var obj1 = { a: 100 };
+var obj2 = function() { return 100 };
+obj1.b = 10;
+obj2.b = 20;
+
+obj1(); // エラー発生
+obj2(); // 100</pre> </dd>
+        </dl>
+        <p>このプログラムについて簡潔に解説すると、関数は( )で実行可能なオブジェクトであるため( )で実行すれば値が返ってくる仕様となってます。</p>
+        <p>それぞれのオブジェクトの挙動を確認するため obj1 と obj2 という名前のオブジェクトを用意しました。 obj2 の中には関数が格納されてます。なので、obj2( )で実行すれば return で返した 100 という処理が実行されます。</p>
+        <p>しかし、obj1 はエラーとなります。エラーとなる原因は obj1 は関数ではないからです。関数ではないオブジェクトは、( )で実行することはできません。プログラミング初学者がこの意味を理解することは相当ハードル高いと感じます。 </p>
+        <dl class="js_code"> <dt>obj.js</dt>
+          <dd>
+            <pre>
+obj1(); // obj 1 is not a function "obj1は関数ではありません"</pre> </dd>
+        </dl>
+        <p>今まで教科書通りにやってると関数とオブジェクトは別物だと覚えがちでしたが、実際に処理を試した結果、実は関数とオブジェクトは仲間だったということが判明します。なので、今日からは関数とオブジェクトは仲間だと覚えてください。</p>
+        <p>何度もくどいようですが、<span style="color:#ff0000;">関数は( )で実行可能なオブジェクト</span>です。</p>
+        <h3 id="i2">関数の実行と参照の違い</h3>
+        <p>関数の実行と参照の違いについて軽く触れときます。「実行」と「参照」は言葉のニュアンス的には似ているなと思われがちですがプログラムの世界では全く違う意味となります。</p>
+        <p>関数の実行とは言葉の通り関数の処理を実行させることです。実行させることでプログラム処理を動かすことができます。関数の処理を実行したい時は( )を使い実行させましょう。</p>
+        <p>関数の参照とは関数の値を照らし合わせる意味となります。関数の中にどんな値が入っているのかを確認することができます。ただ、あくまでも関数の中身を確認するだけであり、処理を実行されることはないので注意が必要です。</p>
+        <dl class="js_code"> <dt>obj.js</dt>
+          <dd>
+            <pre>
+function test() {
+    var a = 100;
+    return a;
+}
+var data = test();
+
+test(); // 関数の実行
+test; // 関数の参照</pre> </dd>
+        </dl>
+        <p>ちなみにオブジェクトとは値やキーと呼ばれるプロパティのデータを格納する入れ物です。関数はプログラムの処理を人まとめにした機能そのものなので仕組みとして共通している部分はいくつかありますね。</p>
+        <h3 id="i3">関数とオブジェクトは仲間です</h3>
+        <p>関数オブジェクトに関しては<a href="https://developer.mozilla.org/ja/docs/Web/JavaScript/Reference/Functions">MDN</a>で詳しく解説されてます。</p>
+        <p>MDNでは関数は第一級オブジェクトであり、他のあらゆるオブジェクトと同じように操作したり渡したりする事ができるので関数とオブジェクトは仲間だと解説されてます。</p>
+        <p>第一級オブジェクトという言い方に少し違和感を感じる方がいるかと思いますが、要するに関数も「普通のオブジェクトと同じ」という解釈で大丈夫です。</p>
+        <p>つまり、関数とオブジェクトは<span style="color:#ff0000;">仲間</span>となります。勉強を進めるうえで「関数とオブジェクトは全然別物」と感じる人は多いかと思います。</p>
+        <p>関数とオブジェクトを区別するのではなく、「実は仲間だった」と心の片隅に刻んでもらいたかっただけなのです。</p>
+        <h3 id="i4">まとめ</h3>
+        <p>今回は関数オブジェクトについて解説しました。皆さんにお伝えしたかったことは「関数とオブジェクトを区別しよう」という話ではなく「関数とオブジェクトは仲間なんだ」と思ってもらいたかったのです。</p>
+        <p>関数オブジェクトは同じように変数に格納できますし、同じように扱えます。違いはオブジェクトを( )で実行しようとした時にわかります。</p>
+        <p>正直、完全に理解しようとしなくても大丈夫です。オブジェクトのプログラムを書いていくうちに自然と身につきますので焦らないんでください。</p>
+      </main>
+      <aside id="aside">バナー広告領域</aside>
+    </div>
+    <!-- container -->
+    <footer id="footer">
+      <p>&copy;はるにくJavaScriptブログ</p>
+    </footer>
+  </div>
+  <!-- wrap -->
+  <!--
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<script>
+// ハイライトを実行
+hljs.initHighlightingOnLoad();
+</script>
+-->
+</body>
+</html>

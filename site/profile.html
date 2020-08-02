@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="このブログはJavaScriptの勉強を進める中で学んだ内容をアウトプットする場として活用してます。">
+  <link rel="stylesheet" href="css/profile.css">
+  <link rel="stylesheet" href="css/sp.css">
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script>
+    $(function() {
+        $('ul.menu').hide();
+        $('div.category').click(function() {
+            $('ul.menu').slideUp();
+            if ($('+ul', this).css('display') == 'none') {
+                $('+ul', this).slideDown();
+            }
+        });
+    });
+  </script>
+</head>
+
+<body>
+  <header id="header">
+    <div class="header-area">
+      <h1>はるにくJavaScriptブログ</h1>
+      <p class="header-p">このブログはJavaScriptの勉強を進める中で学んだ内容をアウトプットする場として活用してます。</p>
+    </div>
+    <div class="header-nav">
+      <ul class="header-navi">
+        <!--
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="#">サイトマップ</a></li>
+        <li><a href="#">お問い合わせ</a></li>
+        -->
+      </ul>
+    </div>
+  </header>
+
+  <div id="wrap">  
+    <div id="container">
+    <!--<nav id="nav"></nav>-->
+    <main id="main">
+      <nav class="pankuzu">
+        <ol class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+          <li itemprop="itemListElement" itemscope
+              itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="index.html">
+                <span itemprop="name">トップ</span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </li>
+
+          <li itemprop="itemListElement" itemscope
+              itemtype="https://schema.org/ListItem">
+            <a itemprop="item" href="variable.html">
+                <span itemprop="name">プロフィール</span>
+            </a>
+            <meta itemprop="position" content="2" />
+          </li>
+        </ol>
+      </nav>
+
+      <div class="prof">
+        <h2>プロフィール</h2>
+        <p>簡単に自己紹介します。</p>
+        <p class="photo">
+          <img src="img/profile.png" alt="画像" width="100%">
+        </p>
+        <dl>
+          <dt>名前：</dt>
+            <dd>Kazuhiro Tokunaga</dd>
+          <dt>生年月日：</dt>
+            <dd>1985.06.03</dd>
+          <dt>出身：</dt>
+            <dd>鹿児島</dd>
+          <dt>血液型：</dt>
+            <dd>AB型</dd>
+          <dt>趣味：</dt>
+            <dd>散歩、ネットサーフィン、時事ネタチェック</dd>
+          <dt>特技：</dt>
+            <dd>将棋が強い、護身術</dd>
+        </dl>
+      </div><!-- prof -->
+
+      <div class="skills">
+        <h2>スキル</h2>
+        <p>更新予定。</p>
+      </div>
+
+      <div class="episode">
+        <h2>生い立ち</h2>
+        <p>鹿児島県の小都市で生まれる。周囲は豊かな自然に囲まれており、長閑な田園風景が広がる。幼少期の頃は人見知りが激しく医師の診断で「自閉症」の疑いをもたれる。</p>
+        <p>自閉症を克服するために「つくし園」に通う。そこで恩師の福元先生と出会う。福元先生と親の献身的なサポートのおかげで克服される。</p>
+        <p>その後は地元の小学、中学、高校に通い、たまたまテレビ番組を通じて華やかな都会ライフの特集番組を見ているうちに都会ライフの虜となってしまう。都会に住みたい想いは日に日に強さを増していき、高校卒業と共に東京上京を決意する。</p>
+        <p>東京に上京するも身寄りも無い為、僅かな貯蓄を頼りに仕事探しを開始する。偶然にも、求人サイトで住み込みで働ける求人を発見し東京都内の新聞配達店に住み込みとして約7年間働く。そこで社会人として社会を生き抜くための様々なノウハウを学ぶ。</p>
+        <p>しかし、思い描いていた華やな都会ライフとはかけ離れた何の変化のない日々を送る。自分に足りないものは一体何なのか・・・　自問自答をした結果、他人との繋がりが足りないことに気が付く。様々な人間が行き交いする人間交差点を体感するため共同生活を始める決意を固める。</p>
+        <p>新聞販売店を退職後、シェアハウスに住み始める。様々な多種多様な価値観を兼ね備えた人達と触れ合うことはとても刺激的であり、人との交流を深めていくことにより飛躍的にコミュニケーション能力が向上していく。シェアハウス生活のおかげで自分に自信を付けることができ、自分にとって大きな財産となる。</p>
+        <p>今まで住み慣れたシェアハウスと別れを告げ、東京都内で一人暮らし生活を満喫する。仕事の合間を縫っては勉強会に参加し自己研鑽に励んでる。</p>
+        <p>趣味は散歩、食べ歩き、物書き（ブログ）です。今後はひたすらルーティンな作業をするだけではなく、幅広く業務の領域を広げていきたいと考えてる。そのためには自分で物事を考えられ、主体的に動けるような人間になるため日々努力してます。</p>
+      </div>
+
+      <div class="share">
+        <ul>
+          <li><a href="#" class="share-tw">
+          <i class="fa fa-twitter"></i><span>Twitter</span>でシェア</a></li>
+          <li><a href="#" class="share-fb">
+          <i class="fa fa-facebook"></i><span>Facebook</span>でシェア</a></li>
+          <li><a href="#" class="share-gp">
+          <i class="fa fa-google-plus"></i><span>Google⁺</span>でシェア</a></li>
+        </ul>
+      </div>
+    </main>
+
+    <aside id="aside">
+      <div class="aside_nav">
+      <h2>カテゴリー</h2>
+      <ul class="navi">
+        <li>
+          <div class="category">ホーム</div>
+          <ul class="menu">
+            <li><a href="index.html">トップ</a></li>
+            <li><a href="profile.html">プロフィール</a></li>
+            <li><a href="#">お問い合わせ</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navi">
+        <li>
+          <div class="category">JavaScript</div>
+          <ul class="menu">
+            <li><a href="variable.html">変数</a></li>
+            <li><a href="typing.html">型付け言語</a></li>
+            <li><a href="#">データ型の種類</a></li>
+            <!--<li><a href="#">条件分岐</a></li> 
+                  <li><a href="#">配列</a></li> 
+                  <li><a href="#">繰り返し処理</a></li>-->
+            <li><a href="function_obj.html">関数オブジェクト</a></li>
+            <li><a href="function.html">関数</a></li>
+            <li><a href="object.html">オブジェクト</a></li>
+            <li><a href="argument.html">引数</a></li>
+            <li><a href="#">戻り値</a></li>
+            <!--<li><a href="#">無名(匿名)関数</a></li> 
+                  <li><a href="#">コールバック関数</a></li> 
+                  <li><a href="#">DOM</a></li> -->
+          </ul>
+        </li>
+      </ul>
+      <ul class="navi">
+        <li>
+          <div class="category">jQuery</div>
+          <ul class="menu">
+            <li><a href="#">準備中</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navi">
+        <li>
+          <div class="category">Vue.js</div>
+          <ul class="menu">
+            <li><a href="#">準備中</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navi">
+        <li>
+          <div class="category">React Native</div>
+          <ul class="menu">
+            <li><a href="#">準備中</a></li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="navi">
+        <li>
+          <div class="category">メンタル</div>
+          <ul class="menu">
+            <li><a href="#">準備中</a></li>
+          </ul>
+        </li>
+      </ul>
+      <!--<ul class="navi">
+              <li>
+              <div class="category">GitHub</div>
+              <ul class="menu"> 
+                  <li><a href="#">準備中</a></li> 
+                  <li><a href="#">プルリクエスト</a></li> 
+                  <li><a href="#">マージ</a></li>
+                  <li><a href="#">コミット</a></li> 
+              </ul>
+              </li>
+          </ul>-->
+      </div>
+    </aside>
+    </div>
+    <!-- container -->
+    <footer id="footer">
+      <p>&copy;はるにくJavaScriptブログ</p>
+    </footer>
+  </div>
+</body>
+</html>
